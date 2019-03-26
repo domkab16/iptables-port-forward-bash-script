@@ -84,4 +84,4 @@ clear
 	fi
 
 	#Reminder to port foward server side
-	echo "Done! Remember to add a firewall rule for $extport server side"
+	echo "Done! Remember to add a firewall rule for $extport $protocol server side"
