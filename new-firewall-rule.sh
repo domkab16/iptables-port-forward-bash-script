@@ -71,7 +71,7 @@ clear
 	fi
 
 	#Asking To Save rules
-	echo "Would you like to save rules or remove them at reboot?"
+	echo "Would you like to save rules or remove them at reboot? [y/n]"
 	echo "Please reboot before running and/or saving this script or iptables rules"
 	read "save"
 
