@@ -61,8 +61,10 @@ clear
 
 		if [ "$protocol" == "tcp/udp" ]
 		then
-			iptables -A PREROUTING -t nat -i ens4 -p all --dport "$extport" -j DNAT --to "$vpnip":"$intport"
-			iptables -A FORWARD -p all -d "$vpnip" --dport "$extport" -j ACCEPT
+			iptables -A PREROUTING -t nat -i  ens4 -p tcp --dport "$extport" -j DNAT --to "$vpnip":"$intport"
+			iptables -A FORWARD -p tcp -d "$vpnip" --dport "$extport" -j ACCEPT
+			iptables -A PREROUTING -t nat -i ens4 -p udp --dport "$extport" -j DNAT --to "$vpnip":"intport"
+			iptables -A FORWARD -p udp -d "$vpnip" --dport "$extport" -j ACCEPT
 		fi
 
 	else
